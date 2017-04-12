@@ -1,0 +1,152 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: invisible-captcha\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-18 04:17+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Andrey Sorvin <ansi@pisem.net>\n"
+"Language-Team: Andrey Sorvin <ansi@pisem.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: c:\\Documents and Settings\\Андрей.K-SYSTEMS.001\\Рабочий стол\\invisible-captcha\\\n"
+"X-Poedit-SearchPath-0: c:\\Documents and Settings\\Андрей.K-SYSTEMS.001\\Рабочий стол\\invisible-captcha\n"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:28
+msgid "No spam, please. This web-site is protected.<br/>Please, enable JavaScript in your browser settings and try again..."
+msgstr "Не спамьте, пожалуйста. Этот сайт защищен.<br/>Включите JavaScript в Вашем обозревателе и попробуйте еще раз..."
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:29
+msgid "To leave a comment please enable JavaScript in your browser settings!"
+msgstr "Пожалуйста, включите JavaScript в Вашем обозревателе для того, чтобы оставить комментарий!"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:179
+msgid "Invisible Captcha"
+msgstr "Невидимая капча"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:272
+msgid "Configuration updated."
+msgstr "Настройки сохранены."
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:274
+msgid " Restored default settings."
+msgstr " Восстановлены стандартные настройки."
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:279
+msgid "Invisible Captcha Configuration"
+msgstr "Настройка Невидимой капчи"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:281
+msgid "Smart invisible captcha for wordpress comments. Visitors of your website don't need to enter letters and numbers. This small plugin automatically protects your website from spam in comments.."
+msgstr "Умная невидимая капча для комментариев WordPress. Гостям вашего сайта не нужно вводить цифры и буквы. Этот маленький, но мощный плагин автоматически защищает ваш сайт от спама в комментариях."
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:284
+msgid "ID of the hidden field"
+msgstr "Идентификатор скрытого поля"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:286
+#: ñòîë\invisible-captcha/invisible_captcha.php:291
+#: ñòîë\invisible-captcha/invisible_captcha.php:296
+msgid "Generate random value"
+msgstr "Сгенерировать случайное значение"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:289
+msgid "Value of the hidden field"
+msgstr "Значение скрытого поля"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:294
+msgid "JavaScript function name"
+msgstr "Название функции JavaScript"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:299
+msgid "Action to perform if comment is identified as spam"
+msgstr "Действие, которое следует выполнить если комментарий определен как спам"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:300
+msgid "Mark as Spam"
+msgstr "Пометить как спам"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:301
+msgid "Comment Moderation"
+msgstr "Модерировать комментарий"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:302
+msgid "Delete Comment"
+msgstr "Удалить комментарий"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:306
+msgid "Displayed messages"
+msgstr "Показываемые сообщения"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:309
+msgid "When spam comment has been blocked"
+msgstr "Когда спам-комментарий заблокирован"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:313
+msgid "If JavaScript is disabled in commentator's browser"
+msgstr "Если отчключен JavaScript в обозревателе комментатора"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:319
+msgid "Save"
+msgstr "Сохранить настройки"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/invisible_captcha.php:323
+msgid "Restore Defaults"
+msgstr "Восстановить стандартные настройки"
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/tags/0.2/invisible_captcha.php:24
+msgid "You are robot! No spam, please."
+msgstr "Вы робот! Не спамьте, пожалуйста."
+
+#: c:\Documents
+#: and Settings\Àíäðåé.K-SYSTEMS.001\Ðàáî÷èé
+#: ñòîë\invisible-captcha/trunk/invisible_captcha.php:24
+msgid "No spam, please."
+msgstr "Не спамьте, пожалуйста."
+

@@ -1,0 +1,489 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Modal Login\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-20 12:55-0000\n"
+"PO-Revision-Date: 2014-06-20 12:55-0000\n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.6.1\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_n:1,2;_x:1,2c;_ex:1,2x;esc_attr__;esc_attr_e;_;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../modal-login.php:78
+msgid "Error: Modal Login class failed to load"
+msgstr "Ошибка: не удалось загрузить класс Modal Login"
+
+#: ../includes/admin.php:17
+msgid "PA Modal Login"
+msgstr ""
+
+#: ../includes/admin.php:31
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Вы не имеете достаточно прав для доступа к этой странице."
+
+#: ../includes/admin.php:35
+msgid "Modal Login Settings"
+msgstr "Настройки Modal Login"
+
+#: ../includes/admin.php:63
+msgid "Setup"
+msgstr "Настройки"
+
+#: ../includes/admin.php:64
+msgid "Style"
+msgstr "Стиль"
+
+#: ../includes/admin.php:65
+msgid "Registration Email"
+msgstr "Email для регистрации"
+
+#: ../includes/admin.php:66
+msgid "Login Widget"
+msgstr "Виджет для входа"
+
+#: ../includes/admin.php:69
+msgid "To add login widget to a sidebar navigate to Appearance > Widgets and drag \"Modal Widget\" to a sidebar."
+msgstr ""
+
+#: ../includes/admin.php:71
+msgid "Shortcode"
+msgstr "Короткий номер"
+
+#: ../includes/admin.php:74
+msgid "Add the following shortcode to a page: [modal_login]"
+msgstr ""
+
+#: ../includes/admin.php:76
+msgid "PHP Code"
+msgstr ""
+
+#: ../includes/admin.php:79
+#, php-format
+msgid "Add the following function in your theme file for example header file: %s"
+msgstr ""
+
+#: ../includes/admin.php:81
+msgid "Login Redirect URL"
+msgstr ""
+
+#: ../includes/admin.php:84
+msgid "Set optional login redirect URL, if not set you will be redirected to login page."
+msgstr ""
+
+#: ../includes/admin.php:86
+msgid "Logout Redirect URL"
+msgstr ""
+
+#: ../includes/admin.php:89
+msgid "Set optional logout redirect URL, if not set you will be redirected to home page."
+msgstr ""
+
+#: ../includes/admin.php:92
+msgid "Add To Theme User Menu"
+msgstr ""
+
+#: ../includes/admin.php:96
+msgid "Add Login/Logout link to theme user menu"
+msgstr ""
+
+#: ../includes/admin.php:99
+msgid "User Genrated Password"
+msgstr ""
+
+#: ../includes/admin.php:103
+msgid "Allow users to enter their own password during registration."
+msgstr ""
+
+#: ../includes/admin.php:105
+msgid "Select Layout"
+msgstr ""
+
+#: ../includes/admin.php:109
+msgid "Default"
+msgstr ""
+
+#: ../includes/admin.php:110
+msgid "Wide"
+msgstr ""
+
+#: ../includes/admin.php:112
+msgid "Select modal login box layout."
+msgstr ""
+
+#: ../includes/admin.php:114
+msgid "Display Labels"
+msgstr ""
+
+#: ../includes/admin.php:118
+msgid "Labels"
+msgstr ""
+
+#: ../includes/admin.php:119
+msgid "Placeholders"
+msgstr ""
+
+#: ../includes/admin.php:121
+msgid "Display textfield labels or placeholders."
+msgstr ""
+
+#: ../includes/admin.php:123
+msgid "Background Color"
+msgstr ""
+
+#: ../includes/admin.php:126
+msgid "Set modal box background color."
+msgstr ""
+
+#: ../includes/admin.php:128
+msgid "Font Color"
+msgstr ""
+
+#: ../includes/admin.php:131
+msgid "Set modal box font color."
+msgstr ""
+
+#: ../includes/admin.php:133
+msgid "Link Color"
+msgstr ""
+
+#: ../includes/admin.php:136
+msgid "Set modal box link color."
+msgstr ""
+
+#: ../includes/admin.php:138
+msgid "Button Color"
+msgstr ""
+
+#: ../includes/admin.php:141
+msgid "Set modal box button color."
+msgstr ""
+
+#: ../includes/admin.php:143
+msgid "Custom CSS"
+msgstr ""
+
+#: ../includes/admin.php:146
+msgid "Add custom CSS code."
+msgstr ""
+
+#: ../includes/admin.php:148
+msgid "Email Subject"
+msgstr ""
+
+#: ../includes/admin.php:153
+msgid "Email Body"
+msgstr "Текст письма"
+
+#: ../includes/admin.php:156
+msgid "Add new user registration email template: %username%, %password%, %loginlink%. Leave blank to use default template."
+msgstr ""
+
+#: ../includes/admin.php:172
+msgid "You can add login/logout link to your site in the following ways (for more setup information see plugin documentation included in the download package):"
+msgstr ""
+
+#: ../includes/admin.php:181
+msgid "Customize the look and feel of the modal login"
+msgstr ""
+
+#: ../includes/admin.php:185
+msgid "Customize the content of new user registration email"
+msgstr ""
+
+#: ../includes/modal-login-class.php:65
+msgid "PA Modal Link"
+msgstr ""
+
+#: ../includes/modal-login-class.php:72
+msgid "Login Label"
+msgstr ""
+
+#: ../includes/modal-login-class.php:73
+msgid "Logout Label"
+msgstr ""
+
+#: ../includes/modal-login-class.php:114
+msgid "Checking Credentials..."
+msgstr ""
+
+#: ../includes/modal-login-class.php:166
+msgid "You are already logged in"
+msgstr "Вы уже авторизованы"
+
+#: ../includes/modal-login-class.php:187
+msgid "Wrong Username or Password!"
+msgstr "Не верный логин или парль"
+
+#: ../includes/modal-login-class.php:192
+msgid "Login Successful!"
+msgstr "Вы успешно вошли!"
+
+#: ../includes/modal-login-class.php:213
+msgid "Registration complete."
+msgstr "Регистрация завершена."
+
+#: ../includes/modal-login-class.php:215
+msgid "Registration complete. Check your email."
+msgstr "Регистрация завершена. Проверьте email."
+
+#: ../includes/modal-login-class.php:247
+msgid "Password Reset. Please check your email."
+msgstr "Пароль сброшен. Пожалуйста проверьте email."
+
+#: ../includes/modal-login-class.php:270
+msgid "Please enter a username."
+msgstr "Введите логин, пожалуйста."
+
+#: ../includes/modal-login-class.php:272
+msgid "This username is invalid because it uses illegal characters. Please enter a valid username."
+msgstr "Вы ввели недопустимые символы. Пожалуйста, введите действительное имя пользователя."
+
+#: ../includes/modal-login-class.php:275
+msgid "This username is already registered. Please choose another one."
+msgstr "Пользователь с таким логином уже зарегистрирован. Пожалуста, выберите другой."
+
+#: ../includes/modal-login-class.php:280
+msgid "Please type your email address."
+msgstr "Пожалуйста, введите Ваш email."
+
+#: ../includes/modal-login-class.php:282
+msgid "The email address isn't correct."
+msgstr "Ваш email имеет не верный формат."
+
+#: ../includes/modal-login-class.php:285
+msgid "This email is already registered, please choose another one."
+msgstr "Такой email уже зарегистрирован. Пожалуста, выберите другой."
+
+#: ../includes/modal-login-class.php:292
+msgid "Please type your password."
+msgstr "Пожалуйста, введите пароль"
+
+#: ../includes/modal-login-class.php:294
+msgid "Password must be 6 character long."
+msgstr "Пароль должен быть как минимум 6 символов."
+
+#: ../includes/modal-login-class.php:296
+msgid "Passwords do not match."
+msgstr "Пароли не совпадают."
+
+#: ../includes/modal-login-class.php:308
+msgid "Couldn't register you... please contact the site administrator"
+msgstr "Не получается Вас зарегистрировать... пожалуйста, свяжитесь с администрацией"
+
+#: ../includes/modal-login-class.php:326
+#, php-format
+msgid "New user registration on your site %s:"
+msgstr ""
+
+#: ../includes/modal-login-class.php:327
+#: ../includes/modal-login-class.php:335
+#: ../includes/modal-login-class.php:425
+#, php-format
+msgid "Username: %s"
+msgstr "Логин: %s"
+
+#: ../includes/modal-login-class.php:328
+#, php-format
+msgid "Email: %s"
+msgstr ""
+
+#: ../includes/modal-login-class.php:330
+#, php-format
+msgid "[%s] New User Registration"
+msgstr "[%s] Регистрация нового пользователя"
+
+#: ../includes/modal-login-class.php:336
+#, php-format
+msgid "Password: %s"
+msgstr "Пароль: %s"
+
+#: ../includes/modal-login-class.php:342
+#, php-format
+msgid "[%s] Your username and password"
+msgstr "[%s] Ваш логин и пароль"
+
+#: ../includes/modal-login-class.php:377
+msgid "Please enter a username or e-mail address."
+msgstr "Пожалуйста, введите логин или email."
+
+#: ../includes/modal-login-class.php:381
+msgid "There is no user registered with that email address."
+msgstr "Нет пользователей, зарегистрированные на этот email."
+
+#: ../includes/modal-login-class.php:393
+msgid "Invalid username or e-mail."
+msgstr "Неверный логин или email"
+
+#: ../includes/modal-login-class.php:407
+msgid "Password reset is not allowed for this user"
+msgstr ""
+
+#: ../includes/modal-login-class.php:423
+msgid "Someone requested that the password be reset for the following account:"
+msgstr ""
+
+#: ../includes/modal-login-class.php:426
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr ""
+
+#: ../includes/modal-login-class.php:427
+msgid "To reset your password, visit the following address:"
+msgstr ""
+
+#: ../includes/modal-login-class.php:438
+#, php-format
+msgid "[%s] Password Reset"
+msgstr "[%s] Сброс пароля"
+
+#: ../includes/modal-login-class.php:443
+msgid "The e-mail could not be sent. Possible reason: your host may have disabled the mail() function."
+msgstr ""
+
+#: ../includes/modal-login-class.php:481
+#: ../includes/modal-login-class.php:648
+#: ../includes/modal-login-class.php:682
+#: ../includes/modal-login-class.php:724
+#: ../includes/modal-login-class.php:727
+msgid "Login"
+msgstr "Войти"
+
+#: ../includes/modal-login-class.php:490
+#: ../includes/modal-login-class.php:491
+#: ../includes/modal-login-class.php:534
+#: ../includes/modal-login-class.php:535
+msgid "Username"
+msgstr "Логин"
+
+#: ../includes/modal-login-class.php:495
+#: ../includes/modal-login-class.php:496
+#: ../includes/modal-login-class.php:502
+#: ../includes/modal-login-class.php:546
+#: ../includes/modal-login-class.php:547
+msgid "Password"
+msgstr "Пароль"
+
+#: ../includes/modal-login-class.php:502
+msgid "Remember Me"
+msgstr "Запомнить меня"
+
+#: ../includes/modal-login-class.php:509
+msgid "Log In"
+msgstr "Войти"
+
+#: ../includes/modal-login-class.php:525
+#: ../includes/modal-login-class.php:633
+#: ../includes/modal-login-class.php:685
+#: ../includes/modal-login-class.php:732
+#: ../includes/modal-login-class.php:735
+msgid "Register"
+msgstr "Регистрация"
+
+#: ../includes/modal-login-class.php:539
+#: ../includes/modal-login-class.php:540
+msgid "Email"
+msgstr ""
+
+#: ../includes/modal-login-class.php:550
+#: ../includes/modal-login-class.php:551
+msgid "Confirm Password"
+msgstr "Подтвердить пароль"
+
+#: ../includes/modal-login-class.php:563
+msgid "Sign Up"
+msgstr "Создать аккаунт"
+
+#: ../includes/modal-login-class.php:580
+msgid "Forgotten Password?"
+msgstr "Забыли пароль?"
+
+#: ../includes/modal-login-class.php:589
+#: ../includes/modal-login-class.php:590
+msgid "Username or Email"
+msgstr "Логин или email"
+
+#: ../includes/modal-login-class.php:599
+msgid "Reset Password"
+msgstr "Сбросить пароль"
+
+#: ../includes/modal-login-class.php:635
+msgid "Lost your password?"
+msgstr "Потеряли пароль?"
+
+#: ../includes/modal-login-class.php:637
+msgid "Back to Login"
+msgstr "Назад к панели входа"
+
+#: ../includes/modal-login-class.php:665
+#, php-format
+msgctxt "Logout Text"
+msgid "%s"
+msgstr ""
+
+#: ../includes/modal-login-class.php:667
+msgid "View Admin"
+msgstr ""
+
+#: ../includes/modal-login-class.php:669
+#, php-format
+msgctxt "Login Text"
+msgid "%s"
+msgstr ""
+
+#: ../includes/modal-login-class.php:683
+#: ../includes/modal-login-class.php:724
+#: ../includes/modal-login-class.php:727
+msgid "Logout"
+msgstr "Выйти"
+
+#: ../includes/modal-login-class.php:684
+msgid "You are already registered and logged in"
+msgstr ""
+
+#: ../includes/modal-login-class.php:702
+#, php-format
+msgctxt "Shortcode Logout Text"
+msgid "%s"
+msgstr ""
+
+#: ../includes/modal-login-class.php:704
+#, php-format
+msgctxt "Shortcode Login Text"
+msgid "%s"
+msgstr ""
+
+#: ../includes/modal-login-class.php:742
+msgid "Add to Menu"
+msgstr ""
+
+#: ../includes/widget/form.php:8
+msgid "Title:"
+msgstr ""
+
+#: ../includes/widget/form.php:13
+msgid "Login Text:"
+msgstr ""
+
+#: ../includes/widget/form.php:18
+msgid "Logout Text:"
+msgstr ""
+
+#: ../includes/widget/form.php:23
+msgid "Show Admin Link:"
+msgstr ""
+
+#: ../includes/widget/modal-login-widget.php:11
+msgid "Display modal login and logout links"
+msgstr ""
+
+#: ../includes/widget/modal-login-widget.php:14
+msgid "Modal Login"
+msgstr ""
+
