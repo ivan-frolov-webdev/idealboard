@@ -15,14 +15,19 @@ if(isset($_POST["username"])) {
 	$args = 'search='.$username.'*';
 	$users_search = get_users($args);
 
-
 	if (username_exists($username)) {
 		foreach ($users_search as $user) {
 			if ($user === end($users_search)) {
 				$str = $user->user_login;
 				$last = substr($str, -1);
-				$math = ($last + 1);
-				echo substr_replace($str, $math, -1);
+				if (is_numeric($last)) {
+					$math = ($last + 1);
+					echo substr_replace($str, $math, -1);
+				}
+				else {
+					echo $str.'1';
+				}
+				
 			}
 		}
 		die;

@@ -1,7 +1,7 @@
 jQuery( document ).ready( function( $ ){
 
     /* GLOBALS */
-    var admin_url = 'http://webdev.hhos.ru/ib/wp-admin/admin-ajax.php';
+    var admin_url = '../wp-admin/admin-ajax.php';
     // $('#ib_price').priceFormat({
     //     prefix: '',
     //     centsSeparator: ',',

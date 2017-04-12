@@ -273,8 +273,14 @@ if ( !class_exists( 'IdealBoard' ) ) {
                 case 'bi_price' :
                     $currency = get_post_meta( $post_id, 'currency_id', true);
                     $sum = get_post_meta( $post_id, 'ib_price', true);
-                    echo idealTools::return_currency_array($currency)['cursign'] . ' ' . $sum;
-					echo idealTools::return_currency_array($currency) . ' ' . $sum;
+					echo $sum.' <strong>';
+					if ($currency == 1) { echo 'BLR'; }
+					if ($currency == 2) { echo 'RUR'; }
+					if ($currency == 3) { echo 'EUR'; }
+					if ($currency == 4) { echo 'USD'; }
+					echo '</strong>';
+                    //echo idealTools::return_currency_array($currency)['cursign'] . ' ' . $sum;
+					//echo idealTools::return_currency_array($currency) . ' ' . $sum;
                     break;
 
                 case 'bi_contacts' :
@@ -678,10 +684,16 @@ if ( !class_exists( 'IdealBoard' ) ) {
                                 <h4>Контакты:</h4>
                                 <p><b>Имя:</b> '.get_post_meta($post->ID, 'user_name', true  ).'</p>
                                 <p><b>Email:</b> '.get_post_meta($post->ID, 'user_email', true  ).'</p>
-                                <p><b>Цена:</b> '.get_post_meta($post->ID, 'ib_price', true  ) . ' <b>' .
-                                                idealTools::return_currency_array(get_post_meta($post->ID, 'currency_id', true  ))['curname'].'</b></p>
-                                <p><b>Телефон:</b> '.get_post_meta($post->ID, 'user_phone', true  ).'</p>';
-				$content .= '<p><b>Дата создания:</b> '; $content .= $post->post_date; $content .= '</p>';
+                                <p><b>Цена:</b> '.get_post_meta($post->ID, 'ib_price', true  ) . '';
+				$dengi = get_post_meta($post->ID, 'currency_id', true);
+				$content .= ' <b>';
+				if ($dengi == 1) { $content .= 'BLR'; }
+				if ($dengi == 2) { $content .= 'RUR'; }
+				if ($dengi == 3) { $content .= 'EUR'; }
+				if ($dengi == 4) { $content .= 'USD'; }
+				$content .= '</b>';
+                $content .= '<p><b>Телефон:</b> '.get_post_meta($post->ID, 'user_phone', true  ).'</p>';
+				$content .= '<p><b>Дата создания:</b> '.get_post_meta($post->ID, 'data_sozdania', true  ).'</p>';
 				$content .= '<p><b>Дата изменения:</b> '; $content .= $post->post_modified; $content .= '</p>';
 				
 				$categories = wp_get_object_terms($post->ID, 'ib_regions');
@@ -986,7 +998,7 @@ add_shortcode( 'ib_phone', 'idealboard_shortcode_phone' );
 
 function idealboard_shortcode_date() {
 	global $post;
-	echo $post->post_date;
+	echo get_post_meta($post->ID, 'data_sozdania', true);
 }
 add_shortcode( 'ib_date', 'idealboard_shortcode_date' );
 
@@ -1023,3 +1035,51 @@ function idealboard_shortcode_category() {
 	}
 }
 add_shortcode( 'ib_category', 'idealboard_shortcode_category' );
+
+// Настройки плагина через админку
+
+class dop_adminka {
+
+	function dop_adminka() {
+		add_action('admin_menu', array(&$this, 'add_menu'));
+		if (!is_array(get_option('dop_adminka')))
+		add_option('dop_adminka', $this->default_settings);
+		$this->options = get_option('dop_adminka');
+	}
+
+	function add_menu() {
+		add_options_page('Идеальная доска', 'Идеальная доска', 8, "dop_adminka", array(&$this, 'menu_opt'));
+	}
+
+	function menu_opt() {
+		if ($_POST['ss_action'] == 'save') {
+
+			$args = array('posts_per_page' => -1);
+			$obiablenia = get_posts( $args );
+			foreach($obiablenia as $post){ setup_postdata($post);
+				update_post_meta($post->ID, 'data_sozdania', $post->post_date);
+			}
+			wp_reset_postdata();
+			
+			echo '<div class="updated fade" id="message" style="background-color: rgb(255, 251, 204); width: 400px; margin-left: 17px; margin-top: 17px;"><p>Процесс переноса <strong>завершен успешно</strong>.</p></div>';
+		}
+
+		echo '<form action="" method="post" class="themeform">';
+		echo '<input type="hidden" id="ss_action" name="ss_action" value="save">';
+
+		print '<div class="wrap">
+		<div id="icon-themes" class="icon32"><br/></div>
+		<h1>Идеальная доска</h1>
+		<h2 class="title">Дата создания объявлений</h2>
+		<p>Переопределить дату создания объявлений: текущая дата создания во всех объявлениях будет перенесена в отдельное поле.<br/>Нажмите на кнопку ниже для запуска процесса переноса.</p>
+		<p>PS: Если процесс уже был запущен, то повторно это делать не нужно.</p>
+		<p class="submit">
+			<input class="button-primary" type="submit" value="Начать переноса даты" name="cp_save" class="dochanges" />
+		</p>
+		</div>';
+		echo '';
+		echo '</form>';
+	}
+}
+$cpanel = new dop_adminka();
+$dop_settings = get_option('dop_adminka');

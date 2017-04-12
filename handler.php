@@ -20,12 +20,10 @@ function save_adverts_callback() {
     $user_name = sanitize_text_field ($_POST['ib_name']);
     $user_phone = sanitize_text_field ($_POST['ib_phone']);
     $user_email = is_email($_POST['ib_email']);
-
     //$category = get_term_by( 'id', $category, 'ib_cats' );
     //$category_id = $category->term_id;
     $region = get_term_by( 'id', $region, 'ib_regions' );
     $region_id = $region->term_id;
-
 
     $defaults = array(
         'post_status'   => 'publish', //[ 'draft' | 'publish' | 'pending'| 'future' | 'private' ]
@@ -47,7 +45,8 @@ function save_adverts_callback() {
         'import_id'     => 0
     );
 
-    $post_id = wp_insert_post( $defaults );
+    $post_id = wp_insert_post($defaults);
+	$data_sozdania = current_time('mysql');
 
     //wp_set_object_terms( $post_id, array($category_id), 'ib_cats' );
     wp_set_object_terms( $post_id, array($region_id), 'ib_regions' );
@@ -57,7 +56,7 @@ function save_adverts_callback() {
     update_post_meta($post_id, 'user_email', $user_email);
     update_post_meta($post_id, 'ib_price', $price);
     update_post_meta($post_id, 'currency_id', $currency);
-
+	update_post_meta($post_id, 'data_sozdania', $data_sozdania);
 
     if (!function_exists('wp_generate_attachment_metadata')){
         require_once(ABSPATH . 'wp-admin/includes/image.php');
