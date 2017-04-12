@@ -141,7 +141,7 @@ class idealTools
 			// END
 
             $args = array(
-                'show_option_all'    => '',
+                'show_option_all'    => 'Выберите категорию',
                 'show_option_none'   => '',
                 'orderby'            => 'ID',
                 'order'              => 'ASC',
@@ -191,7 +191,7 @@ class idealTools
 			// END
 
             $args = array(
-                'show_option_all'    => '',
+                'show_option_all'    => 'Выберите регион',
                 'show_option_none'   => '',
                 'orderby'            => 'ID',
                 'order'              => 'ASC',

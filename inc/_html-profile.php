@@ -3,7 +3,7 @@
 	
 	if( 'POST' == $_SERVER['REQUEST_METHOD'] ) {
 		set_query_var( 'postid1', $_POST['postid'] );
-		wp_delete_post( get_query_var( 'postid1'), true );
+		wp_delete_post( get_query_var( 'postid1'), false );
 	};
 
     if (is_user_logged_in() && $currentUser) {

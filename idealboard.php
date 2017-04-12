@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Идеальная доска
  * Description: Идеальная доска объявлений для регионов и городов
- * Version: 1.3.3
+ * Version: 1.3.4
  * Author: UPPING
  * Author URI: http://upping.biz/
  *
@@ -274,6 +274,7 @@ if ( !class_exists( 'IdealBoard' ) ) {
                     $currency = get_post_meta( $post_id, 'currency_id', true);
                     $sum = get_post_meta( $post_id, 'ib_price', true);
                     echo idealTools::return_currency_array($currency)['cursign'] . ' ' . $sum;
+					echo idealTools::return_currency_array($currency) . ' ' . $sum;
                     break;
 
                 case 'bi_contacts' :
@@ -672,15 +673,27 @@ if ( !class_exists( 'IdealBoard' ) ) {
         public function custom_content_after_post($content){
             global $post;
             if (is_single()) {
-                $content .= '<!--noindex--><!--googleoff: all--><div class="contact-after-post robots-nocontent">
+
+				$content .= '<!--noindex--><!--googleoff: all--><div class="contact-after-post robots-nocontent">
                                 <h4>Контакты:</h4>
                                 <p><b>Имя:</b> '.get_post_meta($post->ID, 'user_name', true  ).'</p>
                                 <p><b>Email:</b> '.get_post_meta($post->ID, 'user_email', true  ).'</p>
                                 <p><b>Цена:</b> '.get_post_meta($post->ID, 'ib_price', true  ) . ' <b>' .
                                                 idealTools::return_currency_array(get_post_meta($post->ID, 'currency_id', true  ))['curname'].'</b></p>
-                                <p><b>Телефон:</b> '.get_post_meta($post->ID, 'user_phone', true  ).'</p>
-                            </div><!--googleon: all--><!--/noindex-->';
-							
+                                <p><b>Телефон:</b> '.get_post_meta($post->ID, 'user_phone', true  ).'</p>';
+				$content .= '<p><b>Дата создания:</b> '; $content .= $post->post_date; $content .= '</p>';
+				$content .= '<p><b>Дата изменения:</b> '; $content .= $post->post_modified; $content .= '</p>';
+				
+				$categories = wp_get_object_terms($post->ID, 'ib_regions');
+
+				if($categories){
+					foreach($categories as $category) {
+						$content .= '<p><b>Регион:</b> '.$category->name.'';
+					}
+				}
+				
+                $content .= '</div><!--googleon: all--><!--/noindex-->';
+		
 				$array_images = array(
 					'ib_more_img_2',
 					'ib_more_img_3',
@@ -927,3 +940,86 @@ function remove_admin_bar() {
 		show_admin_bar(false);
 	}
 }
+
+// Шокртокды для встраивания на сайте
+
+// Шорткод: Цена
+
+function idealboard_shortcode_cena() {
+	global $post;
+	$dengi = get_post_meta($post->ID, 'currency_id', true);
+	echo get_post_meta($post->ID, 'ib_price', true);
+	echo ' <strong>';
+	if ($dengi == 1) { echo 'BLR'; }
+	if ($dengi == 2) { echo 'RUR'; }
+	if ($dengi == 3) { echo 'EUR'; }
+	if ($dengi == 4) { echo 'USD'; }
+	echo '</strong>';
+}
+add_shortcode( 'ib_cena', 'idealboard_shortcode_cena' );
+
+// Шорткод: Имя
+
+function idealboard_shortcode_name() {
+	global $post;
+	echo get_post_meta($post->ID, 'user_name', true);
+}
+add_shortcode( 'ib_name', 'idealboard_shortcode_name' );
+
+// Шорткод: Email
+
+function idealboard_shortcode_email() {
+	global $post;
+	echo get_post_meta($post->ID, 'user_email', true);
+}
+add_shortcode( 'ib_email', 'idealboard_shortcode_email' );
+
+// Шорткод: Телефон
+
+function idealboard_shortcode_phone() {
+	global $post;
+	echo get_post_meta($post->ID, 'user_phone', true);
+}
+add_shortcode( 'ib_phone', 'idealboard_shortcode_phone' );
+
+// Шорткод: Дата создания
+
+function idealboard_shortcode_date() {
+	global $post;
+	echo $post->post_date;
+}
+add_shortcode( 'ib_date', 'idealboard_shortcode_date' );
+
+// Шорткод: Дата обновления
+
+function idealboard_shortcode_date_modified() {
+	global $post;
+	echo $post->post_modified;
+}
+add_shortcode( 'ib_date_modified', 'idealboard_shortcode_date_modified' );
+
+// Шорткод: Регион
+
+function idealboard_shortcode_region() {
+	global $post;
+	$categories = wp_get_object_terms($post->ID, 'ib_regions');
+	if($categories){
+		foreach($categories as $category) {
+			echo ''.$category->name.'';
+		}
+	}
+}
+add_shortcode( 'ib_region', 'idealboard_shortcode_region' );
+
+// Шорткод: Категория
+
+function idealboard_shortcode_category() {
+	global $post;
+	$categories = get_the_category($post->ID);
+	if($categories){
+		foreach($categories as $category) {
+			echo $category->cat_name;
+		}
+	}
+}
+add_shortcode( 'ib_category', 'idealboard_shortcode_category' );

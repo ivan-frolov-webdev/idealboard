@@ -163,9 +163,32 @@ class PAML_Class {
 					$('#reg_user').hide();
 					$('#reg_email').keyup(function(){
 						var hidden_login = $('#reg_email').val();
-						$('#reg_user').empty();
-						$('#reg_user').val(hidden_login);
+						var hidden_login = hidden_login.split('@')[0];
+						//$('#reg_user').empty();
+						//$('#reg_user').val(hidden_login);
+						check_username_ajax(hidden_login);
 					});
+					
+					/*
+					setInterval(function(){
+						var login = $('#reg_user').val();
+						check_username_ajax(login);
+					}, 3000);
+					*/
+					
+					function check_username_ajax(username){
+						$.post('<?php echo IB_PLUGIN_INCLUDES_URL.'pa-modal-login/includes/'; ?>username-checker.php', {'username':username}, function(data) {
+							$("#reg_user").val(data);
+								if (data == "1") {
+									var login = $('#reg_email').val();
+									var login = login.split('@')[0];
+									$('#reg_user').val(login + '2');
+									//alert(data);
+								}
+							
+						});
+					}
+
 				} );
 			</script>
 			<?php 
