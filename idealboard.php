@@ -72,9 +72,6 @@ if ( class_exists( 'PAML_Class' ) ) {
     $paml_class = new PAML_Class;
 }
 
-
-
-
 if ( !class_exists( 'IdealBoard' ) ) {
 
     class IdealBoard

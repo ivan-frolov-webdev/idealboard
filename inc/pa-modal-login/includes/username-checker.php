@@ -3,7 +3,6 @@
 require_once('../../../../../../wp-config.php'); 
 require_once('../../../../../../wp-includes/wp-db.php'); 
 
-
 if(isset($_POST["username"])) {
     if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
         die();
@@ -27,7 +26,6 @@ if(isset($_POST["username"])) {
 				else {
 					echo $str.'1';
 				}
-				
 			}
 		}
 		die;
