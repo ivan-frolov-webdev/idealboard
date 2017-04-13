@@ -27,8 +27,8 @@ include_once(IB_PLUGIN_INCLUDES_DIR . 'invisible-captcha/invisible_captcha.php')
  * LOGIN
  */
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) === true) {
-    if ($_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
-        $_SERVER['HTTPS'] = 'on';
+	if ($_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+		$_SERVER['HTTPS'] = 'on';
     }
 }
 
@@ -41,45 +41,45 @@ define('PAML_PLUGIN_ASSETS_DIR', PAML_PLUGIN_DIR.'/assets/');
 define('PAML_PLUGIN_ASSETS_URL', PAML_PLUGIN_URL.'/assets/');
 
 function paml_load_textdomain() {
-    load_plugin_textdomain('pressapps', false, dirname(plugin_basename(__FILE__)).'/lang/');
+	load_plugin_textdomain('pressapps', false, dirname(plugin_basename(__FILE__)).'/lang/');
 }
 add_action('plugins_loaded', 'paml_load_textdomain');
 
 require_once PAML_PLUGIN_INCLUDES_DIR. 'modal-login-class.php';
 require_once PAML_PLUGIN_INCLUDES_DIR . 'widget/modal-login-widget.php';
 if ( is_admin() ) {
-    require_once PAML_PLUGIN_INCLUDES_DIR . 'admin.php';
+	require_once PAML_PLUGIN_INCLUDES_DIR . 'admin.php';
 }
 function add_modal_login_link( $login_text = 'Login', $logout_text = 'Logout', $show_admin = false ) {
-    global $paml_class;
+	global $paml_class;
 
-    if ( isset( $paml_class ) ) {
-        echo $paml_class->modal_login_btn( $login_text, $logout_text, $show_admin );
-    } else {
-        echo __( 'Error: Modal Login class failed to load', 'pressapps' );
-    }
+	if ( isset( $paml_class ) ) {
+		echo $paml_class->modal_login_btn( $login_text, $logout_text, $show_admin );
+	} else {
+		echo __( 'Error: Modal Login class failed to load', 'pressapps' );
+	}
 }
 function modal_login( $params = array() ) {
-    $params_str = '';
-    foreach( $params as $parameter => $value ) {
-        if( $value ) {
-            $params_str .= sprintf( ' %s="%s"', $parameter, $value);
-        }
-    }
-    echo do_shortcode( "[modal_login $params_str]" );
+	$params_str = '';
+	foreach( $params as $parameter => $value ) {
+		if( $value ) {
+			$params_str .= sprintf( ' %s="%s"', $parameter, $value);
+		}
+	}
+	echo do_shortcode( "[modal_login $params_str]" );
 }
 if ( class_exists( 'PAML_Class' ) ) {
-    $paml_class = new PAML_Class;
+	$paml_class = new PAML_Class;
 }
 
 if ( !class_exists( 'IdealBoard' ) ) {
 
-    class IdealBoard
-    {
+	class IdealBoard
+	{
 
-        public function __construct()
-        {
-            register_activation_hook( IB_PLUGIN_NAME, array(&$this, 'plugin_activate') );
+		public function __construct()
+		{
+			register_activation_hook( IB_PLUGIN_NAME, array(&$this, 'plugin_activate') );
             register_deactivation_hook( IB_PLUGIN_NAME, array(&$this, 'plugin_deactivate') );
 
             add_action( 'init', array(&$this, 'register_post_taxonomies'), 0 );
