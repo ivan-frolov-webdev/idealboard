@@ -9,62 +9,62 @@ add_action( 'wp_ajax_nopriv_save_adverts', 'save_adverts_callback' );
 
 function save_adverts_callback() {
 
-    $user_id = (int)$_POST['user_id'];
-    $category = (int)$_POST['category'];
-    $region = (int)$_POST['ib_regions'];
-    $title = sanitize_text_field ($_POST['ib_title']);
-    //$text = sanitize_text_field ($_POST['adv_text']);
+	$user_id = (int)$_POST['user_id'];
+	$category = (int)$_POST['category'];
+	$region = (int)$_POST['ib_regions'];
+	$title = sanitize_text_field ($_POST['ib_title']);
+	//$text = sanitize_text_field ($_POST['adv_text']);
 	$text = wp_filter_post_kses ($_POST['adv_text']);
-    $price = sanitize_text_field ($_POST['ib_price']);
-    $currency = (int)$_POST['currency_id'];
-    $user_name = sanitize_text_field ($_POST['ib_name']);
-    $user_phone = sanitize_text_field ($_POST['ib_phone']);
-    $user_email = is_email($_POST['ib_email']);
-    //$category = get_term_by( 'id', $category, 'ib_cats' );
-    //$category_id = $category->term_id;
-    $region = get_term_by( 'id', $region, 'ib_regions' );
-    $region_id = $region->term_id;
+	$price = sanitize_text_field ($_POST['ib_price']);
+	$currency = (int)$_POST['currency_id'];
+	$user_name = sanitize_text_field ($_POST['ib_name']);
+	$user_phone = sanitize_text_field ($_POST['ib_phone']);
+	$user_email = is_email($_POST['ib_email']);
+	//$category = get_term_by( 'id', $category, 'ib_cats' );
+	//$category_id = $category->term_id;
+	$region = get_term_by( 'id', $region, 'ib_regions' );
+	$region_id = $region->term_id;
 
-    $defaults = array(
-        'post_status'   => 'publish', //[ 'draft' | 'publish' | 'pending'| 'future' | 'private' ]
-        'post_type'     => 'post',
-        'post_category' => array($category),
-        'post_author'   => $user_id,
-        'ping_status'   => get_option('default_ping_status'),
-        'comment_status' => 'closed', //[ 'closed' | 'open' ]
-        'post_content' => $text,
-        'post_title' => $title,
-        'post_parent'   => 0,
-        'menu_order'    => 0,
-        'to_ping'       => '',
-        'pinged'        => '',
-        'post_password' => '',
-        'guid'          => '',
-        'post_content_filtered' => '',
-        'post_excerpt'  => '',
-        'import_id'     => 0
-    );
+	$defaults = array(
+		'post_status'   => 'publish', //[ 'draft' | 'publish' | 'pending'| 'future' | 'private' ]
+		'post_type'     => 'post',
+		'post_category' => array($category),
+		'post_author'   => $user_id,
+		'ping_status'   => get_option('default_ping_status'),
+		'comment_status' => 'closed', //[ 'closed' | 'open' ]
+		'post_content' => $text,
+		'post_title' => $title,
+		'post_parent'   => 0,
+		'menu_order'    => 0,
+		'to_ping'       => '',
+		'pinged'        => '',
+		'post_password' => '',
+		'guid'          => '',
+		'post_content_filtered' => '',
+		'post_excerpt'  => '',
+		'import_id'     => 0
+	);
 
-    $post_id = wp_insert_post($defaults);
+	$post_id = wp_insert_post($defaults);
 	$data_sozdania = current_time('mysql');
 
-    //wp_set_object_terms( $post_id, array($category_id), 'ib_cats' );
-    wp_set_object_terms( $post_id, array($region_id), 'ib_regions' );
+	//wp_set_object_terms( $post_id, array($category_id), 'ib_cats' );
+	wp_set_object_terms( $post_id, array($region_id), 'ib_regions' );
 
-    update_post_meta($post_id, 'user_name', $user_name);
-    update_post_meta($post_id, 'user_phone', $user_phone);
-    update_post_meta($post_id, 'user_email', $user_email);
-    update_post_meta($post_id, 'ib_price', $price);
-    update_post_meta($post_id, 'currency_id', $currency);
+	update_post_meta($post_id, 'user_name', $user_name);
+	update_post_meta($post_id, 'user_phone', $user_phone);
+	update_post_meta($post_id, 'user_email', $user_email);
+	update_post_meta($post_id, 'ib_price', $price);
+	update_post_meta($post_id, 'currency_id', $currency);
 	update_post_meta($post_id, 'data_sozdania', $data_sozdania);
 
-    if (!function_exists('wp_generate_attachment_metadata')){
-        require_once(ABSPATH . 'wp-admin/includes/image.php');
-        require_once(ABSPATH . 'wp-admin/includes/file.php');
-        require_once(ABSPATH . 'wp-admin/includes/media.php');
-    }
+	if (!function_exists('wp_generate_attachment_metadata')){
+		require_once(ABSPATH . 'wp-admin/includes/image.php');
+		require_once(ABSPATH . 'wp-admin/includes/file.php');
+		require_once(ABSPATH . 'wp-admin/includes/media.php');
+	}
 
-    if ($_FILES) {
+	if ($_FILES) {
         foreach ($_FILES as $file => $array) {
             if ($_FILES[$file]['error'] !== UPLOAD_ERR_OK) {
                 return "upload error : " . $_FILES[$file]['error'];
@@ -163,7 +163,7 @@ function save_cats_mass_clb() {
         }
     }
 
-    wp_redirect(admin_url('edit-tags.php?taxonomy=' . $cat));
+	wp_redirect(admin_url('edit-tags.php?taxonomy=' . $cat));
 }
 //add_action( 'admin_post_nopriv_save_cats_mass', 'save_cats_mass_clb' );
 add_action( 'admin_post_save_cats_mass', 'save_cats_mass_clb' );
