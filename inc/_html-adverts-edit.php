@@ -6,13 +6,12 @@ if (is_user_logged_in() && $currentUser) {
 if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "edit_post" && isset($_POST['postid'])) {
     $post_to_edit = array();
     $post_to_edit = get_post($_POST['postid']);
-	/* these are the fields that we are editing in the form below. you have to change them to your fields and you can add as many as you need. */
- 
-    $title = $_POST['title'];
-    $description = $_POST['description'];
+
+	$title = $_POST['title'];
+	$description = $_POST['description'];
 	$date = $_POST['date'];
-    $user_name = $_POST['user_name']; 
-    $user_phone = $_POST['user_phone'];
+	$user_name = $_POST['user_name']; 
+	$user_phone = $_POST['user_phone'];
 	$user_email = $_POST['user_email'];
 	$ib_price = $_POST['ib_price'];
 	$currency_id = $_POST['currency_id'];
@@ -28,23 +27,17 @@ if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POS
 	$ib_more_img_10 = $_POST['ib_more_img_10'];
 	$ib_more_img_11 = $_POST['ib_more_img_11'];
 	*/
- 
-	/* this code will save the title and description into the post_to_edit array */
+
     $post_to_edit->post_title = $title;
     $post_to_edit->post_content = $description;
 	$post_to_edit->post_date = $date;
- 
-	/* honestly i can't really remember why i added this code but it is a must */
+
     $pid = wp_update_post($post_to_edit);
- 
-	/* save taxonomies: post ID, form name, taxonomy name, if it appends(true) or rewrite(false) */
-	/* here you have to change the "coupon_categories" and "coupon_tags" to the name of your taxonomies */
+
     wp_set_post_terms($pid, array($_POST['cat']),'category',false);
 	wp_set_post_terms($pid, array($_POST['ib_regions']),'ib_regions',false);
     wp_set_post_terms($pid, array($_POST['post_tags']),'post_tag',false);
- 
-	//UPDATE CUSTOM FIELDS WITH THE NEW INFO
-	//CHANGE TO YOUR CUSTOM FIELDS AND ADD AS MANY AS YOU NEED
+
 	update_post_meta($pid, 'user_name', $user_name);
 	update_post_meta($pid, 'user_phone', $user_phone);
 	update_post_meta($pid, 'user_email', $user_email);
@@ -62,22 +55,18 @@ if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POS
 	update_post_meta($pid, 'ib_more_img_10', $ib_more_img_10);
 	update_post_meta($pid, 'ib_more_img_11', $ib_more_img_11);
 	*/
- 
-	//REDIRECT USER WHERE EVER YOU WANT AFTER DONE EDITING
+
 	//wp_redirect(get_permalink($post_to_edit->ID));
 	error_reporting(0);
 	echo '<div class="alert alert-success" role="alert">Ваше объявление было обновлено!
 	<br/>Вернуться на главную <a href="';
 	echo bloginfo(url);
 	echo '">страницу</a>.</div><style>#edit_post{display:none;}</style>';
-	
-	//INSERT OUR MEDIA ATTACHMENTS
-	// THE FIRST LINE OF THE CODE AS TO DO WITH A LITTLE JAVASCRIPT THAT I WILL EXPLAIN LATER. IT CHECKS IF WE NEED TO CHANGE THE IMAGE or not
 
 	if (!function_exists('wp_generate_attachment_metadata')){
-        require_once(ABSPATH . 'wp-admin/includes/image.php');
-        require_once(ABSPATH . 'wp-admin/includes/file.php');
-        require_once(ABSPATH . 'wp-admin/includes/media.php');
+		require_once(ABSPATH . 'wp-admin/includes/image.php');
+		require_once(ABSPATH . 'wp-admin/includes/file.php');
+		require_once(ABSPATH . 'wp-admin/includes/media.php');
     }
 
     if ($_FILES) {
@@ -90,39 +79,32 @@ if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POS
 			*/
 			
             $attach_id = media_handle_upload( $file, $pid );
-			
-			/*
-			echo '<pre>';
-			print_r($_FILES[$file]);
-			echo '</pre>';
-			*/
-			
+
 			if ($_FILES[$file]['error'] === 0) {
 			
-			if ($file == 'ib_adv_photo') {
-				update_post_meta($pid, '_thumbnail_id', $attach_id);
-			}
-			
-			$array_img = array(
-				"ib_more_img_2",
-				"ib_more_img_3",
-				"ib_more_img_4",
-				"ib_more_img_5",
-				"ib_more_img_6",
-				"ib_more_img_7",
-				"ib_more_img_8",
-				"ib_more_img_9",
-				"ib_more_img_10",
-				"ib_more_img_11",
-			);
+				if ($file == 'ib_adv_photo') {
+					update_post_meta($pid, '_thumbnail_id', $attach_id);
+				}
+				
+				$array_img = array(
+					"ib_more_img_2",
+					"ib_more_img_3",
+					"ib_more_img_4",
+					"ib_more_img_5",
+					"ib_more_img_6",
+					"ib_more_img_7",
+					"ib_more_img_8",
+					"ib_more_img_9",
+					"ib_more_img_10",
+					"ib_more_img_11",
+				);
 
-			foreach ($array_img as $img) {
-				if ($file == $img) {
-					update_post_meta($pid, $img, $attach_id);
+				foreach ($array_img as $img) {
+					if ($file == $img) {
+						update_post_meta($pid, $img, $attach_id);
+					}
 				}
 			}
-			}
-			
         }
     }
 
@@ -135,51 +117,39 @@ if( 'POST' == "" && empty( $_POST['action'] ) &&  $_POST['action'] == "" ) {
 	exit;
 };
 
-?>
-
-
+$post_to_edit = get_post($_POST['postid']);
+$terms = get_the_terms($post_to_edit->ID, 'category');
+$post_tag = strip_tags( get_the_term_list( $post_to_edit->ID, 'post_tag', '', ', ', '' ) );
  
-<?php $post_to_edit = get_post($_POST['postid']); ?>
-<?php $terms = get_the_terms($post_to_edit->ID, 'category'); ?>
-<?php $post_tag = strip_tags( get_the_term_list( $post_to_edit->ID, 'post_tag', '', ', ', '' ) ); ?>
- 
-<?php $term_name = strip_tags( get_the_term_list( $post_to_edit->ID, 'category', '', ', ', '' ) ); ?>
-<?php $term_obj = get_term_by('name', $term_name, 'category'); ?>
-<?php $term_id = $term_obj->term_id ;?>
+$term_name = strip_tags( get_the_term_list( $post_to_edit->ID, 'category', '', ', ', '' ) );
+$term_obj = get_term_by('name', $term_name, 'category');
+$term_id = $term_obj->term_id ;
 
-<?php $term_name2 = strip_tags( get_the_term_list( $post_to_edit->ID, 'ib_regions', '', ', ', '' ) ); ?>
-<?php $term_obj2 = get_term_by('name', $term_name2, 'ib_regions'); ?>
-<?php $term_id2 = $term_obj2->term_id ;?>
-<?php $args = array(
-    'selected'           => $term_id,
-    'name'               => 'cat',
-    'class'              => 'form-control',
-    'tab_index'          => 10,
-    'depth'              => 2,
-    'hierarchical'       => 1,
-    'taxonomy'           => 'category',
+$term_name2 = strip_tags( get_the_term_list( $post_to_edit->ID, 'ib_regions', '', ', ', '' ) );
+$term_obj2 = get_term_by('name', $term_name2, 'ib_regions');
+$term_id2 = $term_obj2->term_id;
+
+$args = array(
+    'selected'        => $term_id,
+    'name'            => 'cat',
+    'class'           => 'form-control',
+    'tab_index'       => 10,
+    'depth'           => 2,
+    'hierarchical'    => 1,
+    'taxonomy'        => 'category',
     'hide_empty'      => false
 );
 
 $regions_args = array(
-    'selected'           => $term_id2,
-    'name'               => 'ib_regions',
-    'class'              => 'form-control',
-    'tab_index'          => 10,
-    'depth'              => 2,
-    'hierarchical'       => 1,
-    'taxonomy'           => 'ib_regions',
+    'selected'        => $term_id2,
+    'name'            => 'ib_regions',
+    'class'           => 'form-control',
+    'tab_index'       => 10,
+    'depth'           => 2,
+    'hierarchical'    => 1,
+    'taxonomy'        => 'ib_regions',
     'hide_empty'      => false
-); ?>
-
-<?php
-//echo "<pre>";
-//print_r(query_posts('p=127'));
-//print_r(get_post_meta(127));
-//echo "</pre>"; 
-?>
-
-<?php
+);
 
 $check_edit_page = get_page_by_path( 'change_post' );
 $edit_page_id = get_the_id($check_edit_page);
@@ -188,11 +158,11 @@ if ($edit_page_id == $post_to_edit->ID) {
 	get_header();
 	echo 'Вы не можете просматривать данную страницу. Переходим на главную страницу сайта.';
 	echo '<style>#edit_post{display:none;}</style><script>
-        jQuery(document).ready(function ($) {
-           window.location.replace("';
+		jQuery(document).ready(function ($) {
+			window.location.replace("';
 	echo bloginfo(url);
 	echo '");
-        });
+		});
     </script>';
 }
 

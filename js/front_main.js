@@ -1,40 +1,40 @@
 jQuery( document ).ready( function( $ ){
 
-    /* GLOBALS */
-    var admin_url = '../wp-admin/admin-ajax.php';
-    // $('#ib_price').priceFormat({
-    //     prefix: '',
-    //     centsSeparator: ',',
-    //     thousandsSeparator: ' '
-    // });
-    /**
-     *
-     */
-    // $('.ib-price-dd li').on('click', function (e) {
-    //     e.stopPropagation();
-    //     e.preventDefault();
-    //
-    //     var p = $(this),
-    //         text = p.find('a').text(),
-    //         btn = $('.ib-price-btn'),
-    //         currency = p.find('a').attr('data-val');
-    //
-    //     btn.html(text + ' <span class="caret"></span>');
-    //     $('#currency_id').val(currency);
-    //
-    // });
+	/* GLOBALS */
+	var admin_url = '../wp-admin/admin-ajax.php';
+	// $('#ib_price').priceFormat({
+	//     prefix: '',
+	//     centsSeparator: ',',
+	//     thousandsSeparator: ' '
+	// });
+	/**
+	 *
+	 */
+	// $('.ib-price-dd li').on('click', function (e) {
+	//     e.stopPropagation();
+	//     e.preventDefault();
+	//
+	//     var p = $(this),
+	//         text = p.find('a').text(),
+	//         btn = $('.ib-price-btn'),
+	//         currency = p.find('a').attr('data-val');
+	//
+	//     btn.html(text + ' <span class="caret"></span>');
+	//     $('#currency_id').val(currency);
+	//
+	// });
 
-    $('#ib_price_index').on('change', function (e) {
-        e.preventDefault();
-        e.stopPropagation;
+	$('#ib_price_index').on('change', function (e) {
+		e.preventDefault();
+		e.stopPropagation;
 
-        var p = $(this),
-            currency = p.val();
+		var p = $(this),
+			currency = p.val();
 
-        $('#currency_id').val(currency);
-    });
+		$('#currency_id').val(currency);
+	});
 
-    /* Валидация формы профиля */
+	/* Валидация формы профиля */
     $('#profile_form').validate({
         debug: false,
         rules: {
@@ -203,7 +203,6 @@ jQuery( document ).ready( function( $ ){
         }
     });
 	
-
     /**
      *  Форма профиля
      */
@@ -370,9 +369,8 @@ jQuery( document ).ready( function( $ ){
 
 });
 
-
 function hideDelImgPreview (photo, preview, imgBlock) {
-    photo.replaceWith(photo.clone(true));
-    preview.attr('src', '');
-    imgBlock.slideUp();
+	photo.replaceWith(photo.clone(true));
+	preview.attr('src', '');
+	imgBlock.slideUp();
 }
