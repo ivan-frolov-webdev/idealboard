@@ -80,57 +80,56 @@ if ( !class_exists( 'IdealBoard' ) ) {
 		public function __construct()
 		{
 			register_activation_hook( IB_PLUGIN_NAME, array(&$this, 'plugin_activate') );
-            register_deactivation_hook( IB_PLUGIN_NAME, array(&$this, 'plugin_deactivate') );
+			register_deactivation_hook( IB_PLUGIN_NAME, array(&$this, 'plugin_deactivate') );
 
-            add_action( 'init', array(&$this, 'register_post_taxonomies'), 0 );
+			add_action( 'init', array(&$this, 'register_post_taxonomies'), 0 );
 
-            add_filter( 'manage_edit-post_columns', array(&$this, 'set_custom_posts_columns') );
+			add_filter( 'manage_edit-post_columns', array(&$this, 'set_custom_posts_columns') );
             add_action( 'manage_post_posts_custom_column' , array(&$this, 'custom_posts_column'), 10, 2 );
 
-            add_action( 'admin_menu', array(&$this, 'remove_admin_menu_items') );
+			add_action( 'admin_menu', array(&$this, 'remove_admin_menu_items') );
 
-            if ( is_admin() ) {
+			if ( is_admin() ) {
 
-                //add_filter( 'wp_dropdown_cats', '__return_false' );
+				//add_filter( 'wp_dropdown_cats', '__return_false' );
 
-                add_action('add_meta_boxes', array(&$this, 'my_extra_fields'), 1);
-                add_action('save_post', array(&$this, 'my_extra_fields_update'), 0);
-                add_action('admin_init', array(&$this, 'category_custom_fields'), 1);
-                add_filter( 'plugin_action_links_' . IB_PLUGIN_NAME, array(&$this, 'my_plugin_action_links') );
-            }
+				add_action('add_meta_boxes', array(&$this, 'my_extra_fields'), 1);
+				add_action('save_post', array(&$this, 'my_extra_fields_update'), 0);
+				add_action('admin_init', array(&$this, 'category_custom_fields'), 1);
+				add_filter( 'plugin_action_links_' . IB_PLUGIN_NAME, array(&$this, 'my_plugin_action_links') );
+			}
 
-            add_action( 'restrict_manage_posts', array(&$this, 'true_taxonomy_filter') );
+			add_action( 'restrict_manage_posts', array(&$this, 'true_taxonomy_filter') );
 
-            add_shortcode( 'profile_shcode', array(&$this, 'profile_short_code') );
-            add_shortcode( 'advrt_shcode', array(&$this, 'adv_short_code') );
+			add_shortcode( 'profile_shcode', array(&$this, 'profile_short_code') );
+			add_shortcode( 'advrt_shcode', array(&$this, 'adv_short_code') );
 			add_shortcode( 'advrt_edit_shcode', array(&$this, 'adv_edit_short_code') );
 			add_shortcode( 'last_advert_shcode', array(&$this, 'last_advert_short_code') );
 
-            if ( !is_admin() ) {
-                add_action( 'wp_print_scripts', array(&$this, 'site_load_scripts') );
-                add_action( 'wp_print_styles', array(&$this, 'site_load_styles') );
-            } else {
-                add_action( 'wp_print_scripts', array(&$this, 'admin_load_scripts') );
-            }
+			if ( !is_admin() ) {
+				add_action( 'wp_print_scripts', array(&$this, 'site_load_scripts') );
+				add_action( 'wp_print_styles', array(&$this, 'site_load_styles') );
+			} else {
+				add_action( 'wp_print_scripts', array(&$this, 'admin_load_scripts') );
+			}
 
-            add_filter( 'the_content', array(&$this, 'custom_content_after_post') );
-        }
+			add_filter( 'the_content', array(&$this, 'custom_content_after_post') );
+		}
 
-
-        /**
-         * @return bool
-         */
-        public function plugin_activate()
-        {
-            update_option('users_can_register', 1);
-            update_option('nav_menu_options', 1);
-            $this->register_post_taxonomies();
-            flush_rewrite_rules();
-            $this->create_pages();
-            $this->create_base_categories();
-            $this->create_base_regions();
-            flush_rewrite_rules();
-            return true;
+		/**
+		 * @return bool
+		 */
+		public function plugin_activate()
+		{
+			update_option('users_can_register', 1);
+			update_option('nav_menu_options', 1);
+			$this->register_post_taxonomies();
+			flush_rewrite_rules();
+			$this->create_pages();
+			$this->create_base_categories();
+			$this->create_base_regions();
+			flush_rewrite_rules();
+			return true;
         }
 
         /**
