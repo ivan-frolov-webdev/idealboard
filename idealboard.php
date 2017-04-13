@@ -865,7 +865,7 @@ if ( !class_exists( 'IdealBoard' ) ) {
             add_action('ib_regions_pre_add_form', array(&$this, 'category_custom_fields_form'));
         }
 
-        public function category_custom_fields_form($tag) {
+		public function category_custom_fields_form($tag) {
             ?>
             <div class="form-wrap">
                 <div class="form-field term-parent-wrap">
@@ -897,15 +897,14 @@ if ( !class_exists( 'IdealBoard' ) ) {
                     </div>
 
                     <div class="form-field term-description-wrap mass-block">
-                        <label for="tag-description">Категории</label>
-                        <textarea name="mass_cats" id="mass_cats" rows="10" cols="40" data-tag="<?php echo $tag; ?>"></textarea>
-                        <p>Каждый термин должен начинаться с новой строки.</p>
-                    </div>
-                    <p class="submit">
-                        <input type="submit" class="button button-primary" value="Добавить рубрики">
-                    </p>
+						<label for="tag-description">Категории</label>
+						<textarea name="mass_cats" id="mass_cats" rows="10" cols="40" data-tag="<?php echo $tag; ?>"></textarea>
+						<p>Каждый термин должен начинаться с новой строки.</p>
+					</div>
+					<p class="submit">
+						<input type="submit" class="button button-primary" value="Добавить рубрики">
+					</p>
                 </form>
-
 
                 <script>
                     jQuery(document).ready(function($) {
@@ -923,16 +922,15 @@ if ( !class_exists( 'IdealBoard' ) ) {
                             } else {
                                 b.hide();
                                 c.show();
-                            }
-                        });
-                    });
-                </script>
-            </div>
-            <?php
-        }
+							}
+						});
+					});
+				</script>
+			</div>
+			<?php
+		}
 
-
-    } //END CLASS
+	} //END CLASS
 }
 
 register_uninstall_hook( __FILE__, array( IB_PLUGIN_NAME, 'uninstall' ) );
