@@ -1,150 +1,150 @@
 input[type=submit], input[type=reset], input[type=button] {
-    /*padding: 0 !important;*/
+	/*padding: 0 !important;*/
 }
 
 .post-edit-link {
-    display: none !important;
+	display: none !important;
 }
 
 button, input, select, textarea {
-    font-size: 14px;
+	font-size: 14px;
 }
 input[type=number], input[type=date], input[type=datetime], input[type=datetime-local], input[type=email],
 input[type=month], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time],
 input[type=url], input[type=week], textarea, select{
-    font-size: 14px;
+	font-size: 14px;
 }
 
 .file-upload {
-    position: relative;
-    height: 32px;
-    width: 100%;
-    cursor: pointer;
-    font-size: 14px;
-    font-family: sans-serif;
-    line-height: 1.42857143;
-    color: #555;
+	position: relative;
+	height: 32px;
+	width: 100%;
+	cursor: pointer;
+	font-size: 14px;
+	font-family: sans-serif;
+	line-height: 1.42857143;
+	color: #555;
 }
 
 .file-upload:after {
-    content: "Обзор";
-    position: absolute;
-    display: block;
-    top: 0;
-    right: 0;
-    z-index: 5;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 0 4px 4px 0;
-    padding: 6px 12px;
-    color: #333;
+	content: "Обзор";
+	position: absolute;
+	display: block;
+	top: 0;
+	right: 0;
+	z-index: 5;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 0 4px 4px 0;
+	padding: 6px 12px;
+	color: #333;
 }
 .file-upload:hover:after {
-    color: #333;
-    background-color: #e6e6e6;
-    border-color: #adadad;
+	color: #333;
+	background-color: #e6e6e6;
+	border-color: #adadad;
 }
 
 .file-upload:active:after {
-    outline: 0;
-    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+	outline: 0;
+	-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
 }
 
 .file-upload:before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    display: block;
-    width: calc(100% - 40px);
-    padding: 6px 12px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+	content: attr(data-text);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 3;
+	display: block;
+	width: calc(100% - 40px);
+	padding: 6px 12px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 4px;
 }
 
 .file-upload input {
-    position: absolute;
-    display: block;
-    top: 0;
-    height: 100%;
-    z-index: 99;
-    width: 100%;
-    opacity: 0;
+	position: absolute;
+	display: block;
+	top: 0;
+	height: 100%;
+	z-index: 99;
+	width: 100%;
+	opacity: 0;
 }
 
 #wp-submit, #user-submit {
-    padding: 13px 20px !important;
+	padding: 13px 20px !important;
 }
 .contact-after-post {
-    display: block;
-    margin: 30px 0;
+	display: block;
+	margin: 30px 0;
 }
 .contact-after-post p {
-    line-height: normal;
-    font-size: 12px;
+	line-height: normal;
+	font-size: 12px;
 }
 
 #ib_price {
-    width: 70%;
-    display: inline-block;
+	width: 70%;
+	display: inline-block;
 }
 #ib_price_index {
-    width: 28%;
-    display: inline-block;
+	width: 28%;
+	display: inline-block;
 }
 
 label.error {
-    color: red;
-    font-size: 12px;
-    line-height: 12px;
-    text-decoration: none;
+	color: red;
+	font-size: 12px;
+	line-height: 12px;
+	text-decoration: none;
 }
 
 input.error, textarea.error, select.error {
-    border: 1px solid red;
+	border: 1px solid red;
 }
 
 #image_preview, .image_preview {
-    display: block;
-    margin: 25px 0 0;
-    width: 300px;
-    position: relative;
+	display: block;
+	margin: 25px 0 0;
+	width: 300px;
+	position: relative;
 }
 #remove_from_preview, .remove_from_preview {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    font-weight: bold;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-weight: bold;
 }
 
 .alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-radius: 4px;
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
 }
 .alert-success {
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
 }
 .alert-danger {
-    color: #a94442;
-    background-color: #f2dede;
-    border-color: #ebccd1;
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
 }
 .alert-warning {
-    color: #8a6d3b;
-    background-color: #fcf8e3;
-    border-color: #faebcc;
+	color: #8a6d3b;
+	background-color: #fcf8e3;
+	border-color: #faebcc;
 }
 .alert-info {
-    color: #31708f;
-    background-color: #d9edf7;
-    border-color: #bce8f1;
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
 }
 .image_preview img {
 	height: 150px;
@@ -154,12 +154,12 @@ input.error, textarea.error, select.error {
 /* Old "new" styles */
 
 input[type=date], input[type=datetime], input[type=datetime-local], input[type=email], input[type=month], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], textarea, select {
-    width: 100%;
+	width: 100%;
 }
 
 #category .level-0,
 #ib_regions .level-0 {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .admin-data label {
